@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>7th Gate | 973</title>
+  <style>
+    .symbol-grid { 
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    .symbol:hover { cursor: pointer; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <div class="symbol-grid">
+    <!-- Fibonacci Sequence: 1,1,2,3,5,8,13 -->
+    <div class="symbol" onclick="checkSymbol(1)">♊</div>
+    <div class="symbol" onclick="checkSymbol(2)">♎</div>
+    <div class="symbol" onclick="checkSymbol(3)">⚕</div>
+    ...
+  </div>
 
+  <script>
+    const correctSequence = [1, 2, 3, 5, 8, 13]; // Fibonacci indexes
+    let userSequence = [];
+
+    function checkSymbol(index) {
+      userSequence.push(index);
+      if (JSON.stringify(userSequence) === JSON.stringify(correctSequence)) {
+        window.location.href = '/audio/wind.mp3'; // Next clue in audio
+      }
+    }
+  </script>
+</body>
+</html>
